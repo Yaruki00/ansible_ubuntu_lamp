@@ -1,0 +1,7 @@
+---
+- stat: path=/etc/php/5.6/apache2/php.ini
+  register: modphp
+
+- include: mod-php.yml
+  when: modphp.stat.exists
+

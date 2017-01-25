@@ -1,0 +1,31 @@
+---
+server:
+    install: '1'
+    packages: [git]
+    timezone: Asia/Tokyo
+    locale: ja_JP.UTF-8
+apache:
+    install: '1'
+    docroot: '/var/www/html'
+    servername: 'localhost'
+mysql:
+    install: '1'
+    root_password: root
+    database: db
+    user: user
+    password: password
+php:
+    install: '1'
+    ppa: php
+    packages: [php5.6-cli, php5.6-intl, php5.6-mcrypt, php5.6-curl, php5.6-fpm, php5.6-gd, php5.6-mbstring, php5.6-mysql]
+    config:
+      - regexp: '^;(mbstring.language) =.*'
+        line: '\1 = Japanese'
+      - regexp: '^;(mbstring.internal_encoding) =.*'
+        line: '\1 = UTF-8'
+      - regexp: '^;(mbstring.http_input) =.*'
+        line: '\1 = pass'
+      - regexp: '^;(mbstring.http_output) =.*'
+        line: '\1 = pass'
+      - regexp: '^;(mbstring.encoding_translation) =.*'
+        line: '\1 = off'

@@ -1,0 +1,2 @@
+[phansible-web]
+xxx.xxx.xxx.xxx ansible_ssh_user=user ansible_ssh_pass=pass
